@@ -17,14 +17,14 @@
     yo angular:view user
     yo angular:service myService
     yo angular:decorator serviceName
-    
+
 ## Configurations
 ### App-level socket
     
 - config/sockets.js
 
         onConnect: function(session, socket) {
-              console.log('onConnection')
+              var socketId = sails.sockets.id(socket);
               var numberOfSockets = Object.keys(socket.namespace.manager.sockets.sockets).length
               socket.emit('connectedUsers', { count: numberOfSockets });
               socket.broadcast.emit('connectedUsers', { count: numberOfSockets });
