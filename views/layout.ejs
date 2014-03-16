@@ -29,10 +29,11 @@
     -->
 
     <!--STYLES-->
+    <link rel="stylesheet" href="/styles/importer.css">
     <!--STYLES END-->
   </head>
 
-  <body>
+  <body ng-app="linkerApp">
     <%- body %>
 
 
@@ -59,6 +60,7 @@
     -->
 
     <!--TEMPLATES-->
+    
     <!--TEMPLATES END-->
 
 
@@ -86,6 +88,20 @@
     -->
 
     <!--SCRIPTS-->
+    <script src="/linker/bower_components/angular/angular.js"></script>
+    <script src="/linker/bower_components/angular-resource/angular-resource.js"></script>
+    <script src="/linker/bower_components/angular-route/angular-route.js"></script>
+    <script src="/linker/bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="/linker/bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="/linker/app/scripts/app.js"></script>
+    <script src="/linker/app/scripts/controllers/main.js"></script>
+    <script src="/linker/app/scripts/directives/mydirective.js"></script>
+    <script src="/linker/app/scripts/filters/myfilter.js"></script>
+    <script src="/linker/app/scripts/services/myservice.js"></script>
+    <script src="/linker/app/scripts/services/socket.js"></script>
+    <script src="/js/socket.io.js"></script>
+    <script src="/js/sails.io.js"></script>
+    <script src="/js/connection.example.js"></script>
     <!--SCRIPTS END-->
   </body>
 </html>

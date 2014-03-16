@@ -22,7 +22,14 @@ var cssFilesToInject = [
 // Client-side javascript files to inject in order
 // (uses Grunt-style wildcard/glob/splat expressions)
 var jsFilesToInject = [
-
+  'linker/bower_components/angular/angular.js',
+  'linker/bower_components/angular-resource/angular-resource.js',
+  'linker/bower_components/angular-route/angular-route.js',
+  'linker/bower_components/angular-cookies/angular-cookies.js',
+  'linker/bower_components/angular-mocks/angular-mocks.js',
+  'linker/bower_components/angular-sanitize/angular-sanitize.js',
+  'linker/bower_components/angular-scenario/angular-scenario.js',
+  'linker/app/**/*.js',
   // Below, as a demonstration, you'll see the built-in dependencies
   // linked in the proper order order
 
