@@ -8,6 +8,16 @@
     sails lift 
     
 
+### Yo Angular!
+    cd assets/linker
+    yo angular:route myroute
+    yo angular:controller user
+    yo angular:directive myDirective
+    yo angular:filter myFilter
+    yo angular:view user
+    yo angular:service myService
+    yo angular:decorator serviceName
+    
 ## Configurations
 ### App-level socket
     
