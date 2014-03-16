@@ -15,18 +15,20 @@ module.exports.sockets = {
   // Keep in mind that Sails' RESTful simulation for sockets 
   // mixes in socket.io events for your routes and blueprints automatically.
   onConnect: function(session, socket) {
+    var socketId = sails.sockets.id(socket);
     var numberOfSockets = Object.keys(socket.namespace.manager.sockets.sockets).length
+
     socket.emit('connectedUsers', { count: numberOfSockets });
-    socket.broadcast.emit('connectedUsers', { count: numberOfSockets });    
+    socket.broadcast.emit('connectedUsers', { count: numberOfSockets });
 
     // By default, do nothing.
-    
   },
 
   // This custom onDisconnect function will be run each time a socket disconnects
   onDisconnect: function(session, socket) {
     // This is a good place to broadcast a disconnect message, or any other custom socket.io logic
     var numberOfSockets = Object.keys(socket.namespace.manager.sockets.sockets).length
+    
     socket.emit('connectedUsers', { count: numberOfSockets });
     socket.broadcast.emit('connectedUsers', { count: numberOfSockets });
 
