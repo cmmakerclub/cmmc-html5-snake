@@ -2,14 +2,54 @@
 
 angular.module('linkerApp')
   .controller('MainCtrl', function ($scope, $socket) {
+    $scope.direction_mngr = new DirectionManager();
+
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
 
-	$socket.on('connectedUsers', function(data) {
-		$scope.connectedUsers = data;
-	})    
+  	$socket.on('connectedUsers', function(data) {
+  		$scope.connectedUsers = data;
+      snake_game.set_direction_manager($scope.direction_mngr);
+      // snake_game.start();
+  	})    
 
+    $socket.on('serialdata', function(data) {
+      // console.log(d);
+      var pad = data.data.split(",");
+
+      var direction = {
+        UP: parseInt(pad[0].split(":")[1], 10),
+        DOWN: parseInt(pad[1].split(":")[1], 10),
+        LEFT: parseInt(pad[2].split(":")[1], 10),
+        RIGHT: parseInt(pad[3].split(":")[1], 10),
+        S: parseInt(pad[4].split(":")[1], 10),
+        E: parseInt(pad[5].split(":")[1], 10),
+        A: parseInt(pad[6].split(":")[1], 10),
+        X: parseInt(pad[7].split(":")[1], 10),
+        Y: parseInt(pad[8].split(":")[1], 10),
+      } 
+
+
+      var directions = ['UP', 'DOWN', 'LEFT', 'RIGHT'];
+      var charCode = { 
+            UP: 107,
+            DOWN: 106,
+            LEFT: 104,
+            RIGHT: 108 
+          }
+
+      directions.forEach(function(d) {
+        if (direction[d] === 0) {
+          // var method = d.toLowerCase();
+          $scope.direction_mngr.set_heading_direction(charCode[d]);
+
+        }
+      });
+
+
+
+    })
   });

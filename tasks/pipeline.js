@@ -22,6 +22,7 @@ var cssFilesToInject = [
 // Client-side javascript files to inject in order
 // (uses Grunt-style wildcard/glob/splat expressions)
 var jsFilesToInject = [
+  'linker/bower_components/vendor/**/*.js',
   'linker/bower_components/angular/angular.js',
   'linker/bower_components/angular-resource/angular-resource.js',
   'linker/bower_components/angular-route/angular-route.js',
