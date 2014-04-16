@@ -9,6 +9,15 @@
  */
 
 module.exports.bootstrap = function (cb) {
+	// var serialport = require("serialport")
+	// var SerialPort = serialport.SerialPort;
+	// var serialPort = new SerialPort("/dev/tty.CMMC-3D-PRINTER-DevB", {
+	//      baudrate: 115200,
+	//      parser: serialport.parsers.readline("\r\n") 
+	// }, true);
+
+	// sails.serialPort = serialPort;
+
 
   // It's very important to trigger this callack method when you are finished 
   // with the bootstrap!  (otherwise your server will never lift, since it's waiting on the bootstrap)
