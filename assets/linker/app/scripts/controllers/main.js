@@ -11,9 +11,12 @@ angular.module('linkerApp')
     ];
 
   	$socket.on('connectedUsers', function(data) {
+      socket.get('/user/test', function(con) {
+        console.log(con);
+        snake_game.start();
+      });
   		$scope.connectedUsers = data;
       snake_game.set_direction_manager($scope.direction_mngr);
-      // snake_game.start();
   	})    
 
     $socket.on('serialdata', function(data) {
@@ -41,12 +44,28 @@ angular.module('linkerApp')
             RIGHT: 108 
           }
 
+      if (direction.X < 200) {
+        direction.LEFT = 0;
+      }
+      else if (direction.X > 400) {
+        direction.RIGHT = 0;
+      }
+
+      if (direction.Y < 200) {
+        direction.DOWN = 0;
+      }
+      else if (direction.Y > 400) {
+        direction.UP = 0;
+      }
+
+
       directions.forEach(function(d) {
         if (direction[d] === 0) {
           // var method = d.toLowerCase();
           $scope.direction_mngr.set_heading_direction(charCode[d]);
-
         }
+
+
       });
 
 

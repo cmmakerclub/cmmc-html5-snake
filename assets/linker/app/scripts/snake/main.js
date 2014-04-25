@@ -26,7 +26,7 @@ PAINTER = DrawerManager.get_drawer(SETTINGS);
 var $canvas = $(PAINTER.get_prepared_canvas());
 $('body').append($canvas);
 
-PAINTER.draw_grid();
+// PAINTER.draw_grid();
 
 
 // PAINTER.draw_grid();

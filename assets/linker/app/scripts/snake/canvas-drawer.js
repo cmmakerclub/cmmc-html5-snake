@@ -17,9 +17,29 @@ var DrawerManager = (function() {
         return Cell;
       }
 
+      function draw_grid2(canvas, width, height, cw, grid_color) {
+        var ctx = canvas.getContext("2d");
+
+        // verical
+        for (var x = 0.5; x < width; x += cw) {
+          ctx.moveTo(x, 0);
+          ctx.lineTo(x, height);
+        }
+
+        // horizontal
+        for (var y = 0.5; y < height; y += cw) {
+          ctx.moveTo(0, y);
+          ctx.lineTo(width, y);
+        }
+
+        ctx.strokeStyle = grid_color;
+        ctx.stroke();
+
+        return canvas;
+      }
+
       function draw_grid(options) {
-        options = jQuery.extend(GLOBAL_SETTINGS, options)
-        var gridColor = options.color || "#eee";
+        var gridColor = options && options.color || "#eee";
         var ctx = canvas.getContext("2d");
 
         // verical
