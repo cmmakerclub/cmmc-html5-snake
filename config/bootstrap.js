@@ -12,8 +12,8 @@ module.exports.bootstrap = function (cb) {
 	try {
 		var serialport = require("serialport")
 		var SerialPort = serialport.SerialPort;
-		var serialPort = new SerialPort("/dev/tty.CMMC-3D-PRINTER-DevB", {
-		     baudrate: 115200,
+		var serialPort = new SerialPort("/dev/tty.usbmodem1431", {
+		     baudrate: 9600,
 		     parser: serialport.parsers.readline("\r\n") 
 		}, true);
 

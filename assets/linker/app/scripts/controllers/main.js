@@ -20,7 +20,7 @@ angular.module('linkerApp')
   	})    
 
     $socket.on('serialdata', function(data) {
-      // console.log(d);
+      console.log(data);
       var pad = data.data.split(",");
 
       var direction = {
@@ -47,14 +47,14 @@ angular.module('linkerApp')
       if (direction.X < 200) {
         direction.LEFT = 0;
       }
-      else if (direction.X > 400) {
+      else if (direction.X > 550) {
         direction.RIGHT = 0;
       }
 
       if (direction.Y < 200) {
         direction.DOWN = 0;
       }
-      else if (direction.Y > 400) {
+      else if (direction.Y > 550) {
         direction.UP = 0;
       }
 
