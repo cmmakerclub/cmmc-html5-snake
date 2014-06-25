@@ -20,7 +20,6 @@ angular.module('linkerApp')
   	})    
 
     $socket.on('serialdata', function(data) {
-      console.log(data);
       var pad = data.data.split(",");
 
       var direction = {
