@@ -20,7 +20,7 @@ snake_game = function() {
         var settings = {
             width: 450,
             height: 450,
-            MAX_ROW: 20,    
+            MAX_ROW: 20,
             MAX_COL: 20
         }
 
@@ -51,8 +51,8 @@ snake_game = function() {
                 game_loop = setInterval(draw, 1000/speed);
               }
             });
-            // remove tail
 
+            // remove tail
             var tail = snake.pop();
 
             SNAKE.paint_cell(canvas, {row: tail.row, column: tail.column, color: 'white'});
@@ -65,9 +65,8 @@ snake_game = function() {
 
             snake.unshift(tail);
 
-
             SNAKE.draw_squares(foods, { canvas: canvas, color: 'red'})
-            SNAKE.draw_squares(snake, { canvas: canvas, color: 'blue'})    
+            SNAKE.draw_squares(snake, { canvas: canvas, color: 'blue'})
 
         }
 
@@ -102,7 +101,7 @@ snake_game = function() {
         direction_mngr = manager;
     }
 
-    return { 
+    return {
         set_direction_manager: set_direction_manager,
         start: start,
         stop:  stop,
